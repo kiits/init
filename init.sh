@@ -350,10 +350,10 @@ setopt noincappendhistory
 setopt nosharehistory
 
 function grf(){
-grep -r $1 ./
+grep -r \$1 ./
 }
 
 function fgg(){
-fg %$1
+fg %\$1
 }
 EOF
