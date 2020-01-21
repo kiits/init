@@ -43,10 +43,8 @@ set -g set-titles-string '#T'
 # status bar with load and time
 set -g status-bg blue
 set -g status-fg '#bbbbbb'
-set -g status-left-fg green
-set -g status-left-bg blue
-set -g status-right-fg green
-set -g status-right-bg blue
+set -g status-left-style fg=green,bg=blue
+set -g status-right-style fg=green,bg=blue
 set -g status-left-length 90
 set -g status-right-length 90
 set -g status-left '[#(whoami)]'
@@ -54,8 +52,7 @@ set -g status-right '[#(date +" %m-%d %H:%M ")]'
 set -g status-justify "centre"
 set -g window-status-format '#I #W'
 set -g window-status-current-format ' #I #W '
-setw -g window-status-current-bg blue
-setw -g window-status-current-fg green
+setw -g window-status-current-style bg=blue,fg=green
 bind  k resize-pane -U 5
 bind  j resize-pane -D 5
 bind  h resize-pane -L 5
@@ -69,8 +66,8 @@ bind  l resize-pane -R 5
 set-option -g allow-rename off
 
 # pane border colors
-set -g pane-active-border-fg '#55ff55'
-set -g pane-border-fg '#555555'
+set -g pane-active-border-style fg='#55ff55'
+set -g pane-border-style fg='#555555'
 EOF
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -339,6 +336,7 @@ EOF
 #vim
 #:PluginInstall
 
+#apt-get install -y zsh
 sudo yum install git
 sudo yum -y install zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
